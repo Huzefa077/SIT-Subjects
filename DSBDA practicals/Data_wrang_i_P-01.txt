@@ -1,0 +1,26 @@
+import pandas as pd
+import numpy as np
+import random as rd
+df = pd.read_csv("D:\\Ed (AIO)\\Educationals\\SIT\\Academics\\SEM 6\\Data Science and Big data Analytics\\assignments\\dsbda datasets\\tested.csv")
+df
+df.describe()
+df.shape
+df["Age"].fillna(df["Age"].mean(),inplace=True)
+df.drop(columns = 'Cabin',inplace = True,axis = 1)
+either columns = '' or use axis = 1 for columns, axis = 0 for rows
+df.isnull().sum()
+df.dtypes
+Types of variable below
+df.info()
+df.nunique()
+df['Sex'].value_counts()
+\
+Variables not in correct data type, correct them, age is in float, make it int64
+\
+df['Age'] = df['Age'].astype('int64')
+df.dtypes
+\
+sex is object, make it int, from categorical to quantitative
+\
+df["Sex"].replace(['male','female'],[1,0],inplace=True)
+df['Sex'].value_counts()
