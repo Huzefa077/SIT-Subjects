@@ -1,0 +1,31 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+/\titanic=sns.load_dataset("titanic")
+/\titanic.isnull().sum()
+/\sns.countplot(x ='sex', data = titanic)
+/\sns.countplot(x ='survived', data =titanic)
+/\sns.countplot(x ='pclass', data =titanic)
+/\sns.boxplot(titanic.age)
+/\sns.boxplot(titanic.fare)
+/\sns.boxplot(data = titanic , x= "pclass" ,y = "age")
+/\sns.catplot(x='pclass', y='fare', data=titanic)
+/\sns.catplot(x='sex', y='fare', data=titanic)
+/\sns.boxplot(data = titanic , x= "sex" ,y = "age" )
+/\sns.histplot(titanic.fare ,bins=10)
+/\sns.barplot(x = 'pclass', y = 'fare', data = titanic ,hue = 'sex' )
+
+/\sns.histplot(data=titanic, x='fare',bins=10,hue='sex', kde='true')
+/\plt.xlabel ('ticket price')
+/\plt.ylabel ('Total passengers')
+/\plt.title('histogram')
+
+
+/\OBSERVATIONS
+1.THere are more passengers in first that is lower class 
+ 2. Age normally distributed 
+ 3.Fare is almost left skewed towards towards 
+ 4.The number of old male passenger is more than female passengers
+ 5.There are more young females on ship 
+ 6.The females have paid medium to higher ranges of fair.
