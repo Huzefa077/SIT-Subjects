@@ -1,0 +1,42 @@
+def fract_knapsack(items,capacity):
+    total_value = 0
+    #STEP 1 = calculate value/weight ratio
+    for item in items:
+        item['ratio'] = item['value']/item['weight']
+    
+    #STEP 2 = sort in decreasing order
+    items.sort(key = lambda item:item['ratio'], reverse = True)
+
+    #STEP 3 = add items in sack by checking conditions
+    sack = []
+    for item in items:
+        if capacity >= item['weight']:
+            sack.append(item)
+            total_value += item['value']
+            capacity -= item['weight']
+        else:
+            fraction = capacity/item['weight'] 
+            #we came to know that 20% item can be accomodated in sack
+	    #so we will take 20% weight and 20% value of that item and make a custom item
+            new_item = {'name':'Fraction of ' + item['name'],'weight':item['weight'] * fraction,'value':item['value'] * fraction}
+            sack.append(new_item)
+            capacity -= new_item['weight']
+            total_value += new_item['value']
+    return total_value, sack
+            
+items = [
+    {'name':'Item 1','weight': 10, 'value':60},
+    {'name':'Item 2','weight': 20, 'value':120},
+    {'name':'Item 3','weight': 30, 'value':130}
+]
+
+capacity = 50
+
+total_value, sack = fract_knapsack(items,capacity)
+
+print(total_value)
+
+for i in sack:
+    print(i)
+            
+            

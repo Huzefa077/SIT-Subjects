@@ -1,0 +1,36 @@
+#non-recursive
+first_seq = 0
+second_seq = 1
+
+terms = int(input("Enter number of terms in fibonacci = "))
+
+print(first_seq, end=" ")
+
+print(second_seq, end=" ")
+
+for i in range (terms-2):
+    third_term = first_seq + second_seq
+
+    print(third_term,end=" ")
+
+    first_seq = second_seq
+    second_seq = third_term
+#----------------------recursive----------------
+
+# def fibonacci(n):
+#     if n==0:
+#         return 0
+#     elif n==1:
+#         return 1
+#     else:
+#         return fibonacci(n-1) + fibonacci(n-2)
+
+# #get the number
+# n = int(input("Enter the number of terms of fibonacci = "))
+
+# #print
+# print(f"Fibonacci {n} terms = ")
+
+# for i in range (n):
+#     print(fibonacci(i),end = " ")
+
